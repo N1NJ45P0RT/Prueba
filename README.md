@@ -63,8 +63,8 @@ Este proyecto es una aplicación web que permite gestionar descargas de archivos
 4. **Configura las variables de entorno**  
     Copia el archivo de ejemplo y edítalo si es necesario:
     ```bash
-    cp env.example .env
-    nano .env
+    cp env.example env.env
+    nano env.env
     ```
 
 5. **Inicia el servidor**  
