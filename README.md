@@ -35,36 +35,45 @@ Este proyecto es una aplicación web que permite gestionar descargas de archivos
 - **env.example**: Archivo de configuración para variables de entorno.
 - **ico.png**: Icono utilizado en la interfaz.
 
-## Configuración de Node.js y npm
+## Instalación y Configuración en Linux desde la Terminal
 
-1. **Instalar Node.js y npm**:
-   - Descarga e instala Node.js desde su [sitio oficial](https://nodejs.org/). Esto también instalará npm (Node Package Manager).
-   - Verifica la instalación ejecutando los siguientes comandos en tu terminal:
-     ```bash
-     node -v
-     npm -v
-     ```
-     Esto debería mostrar las versiones instaladas de Node.js y npm.
+1. **Instala Node.js y npm**  
+    Ejecuta en la terminal:
+    ```bash
+    sudo apt update
+    sudo apt install nodejs npm
+    ```
+    Verifica la instalación:
+    ```bash
+    node -v
+    npm -v
+    ```
 
-2. **Configurar el proyecto**:
-   - Asegúrate de estar en el directorio raíz del proyecto.
-   - Ejecuta el siguiente comando para instalar las dependencias necesarias:
-     ```bash
-     npm install
-     ```
+2. **Clona el repositorio y accede al directorio del proyecto**  
+    ```bash
+    git clone <URL_DEL_REPOSITORIO>
+    cd Prueba
+    ```
 
-3. **Configurar variables de entorno**:
-   - Crea un archivo `env.env` en el directorio raíz del proyecto.
-   - Copia el contenido del archivo `env.example` al archivo `env.env` y ajusta los valores según sea necesario.
+3. **Instala las dependencias**  
+    ```bash
+    npm install
+    ```
 
-4. **Iniciar el servidor**:
-   - Ejecuta el siguiente comando para iniciar el servidor:
-     ```bash
-     node backend_descargas.js
-     ```
-   - La aplicación estará disponible en `http://127.0.0.1:3001`.
+4. **Configura las variables de entorno**  
+    Copia el archivo de ejemplo y edítalo si es necesario:
+    ```bash
+    cp env.example .env
+    nano .env
+    ```
 
-Si encuentras problemas durante la configuración, asegúrate de que las versiones de Node.js y npm sean compatibles con el proyecto.
+5. **Inicia el servidor**  
+    ```bash
+    node backend_descargas.js
+    ```
+    La aplicación estará disponible en `http://127.0.0.1:3001`.
+
+Si tienes problemas, revisa que las versiones de Node.js y npm sean compatibles y que todas las dependencias estén correctamente instaladas.
 
 ## Uso
 
