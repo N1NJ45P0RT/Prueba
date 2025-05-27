@@ -55,10 +55,11 @@ Este proyecto es una aplicación web que permite gestionar descargas de archivos
     cd Prueba
     ```
 
-3. **Instala las dependencias**  
-    ```bash
-    npm install
-    ```
+3. **Instala las dependencias necesarias**  
+   Asegúrate de instalar las siguientes dependencias requeridas para el proyecto:
+   ```bash
+   npm install express dotenv nodemailer
+   ```
 
 4. **Configura las variables de entorno**  
     Copia el archivo de ejemplo y edítalo con tus datos:

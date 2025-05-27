@@ -25,4 +25,5 @@ function enviarSugerencia(e) {
     .catch(() => showToast('Error al enviar el formulario'));
 }
 
+// Exportar la función como módulo
 export { enviarSugerencia };

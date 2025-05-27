@@ -22,5 +22,7 @@ function copyAllEmails() {
     });
 }
 
+// Exportar las funciones como módulos
 export { copyEmail, copyAllEmails };
 window.copyAllEmails = copyAllEmails;
+window.copyEmail = copyEmail;

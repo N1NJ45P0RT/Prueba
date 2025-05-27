@@ -72,4 +72,5 @@ window.onload = function() {
 
 window.incrementDownload = incrementDownload;
 
+// Exportar las funciones como módulos
 export { generarIdSpan, incrementarDescargaGlobal, cargarDescargasGlobales, incrementDownload };
