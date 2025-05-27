@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ico.png" type="image/x-icon">
+    <title>Pichon's Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <button id="toggleDarkMode" class="toggle-dark" onclick="toggleDarkMode()">🌙/☀️</button>
+    <div class="toast" id="toast"></div>
+    <header>
+        <h1>Pichon's Web Server</h1>
+        <h2>Descarga de archivos</h2>
+    </header>
+    <main>
+        <div class="buttons">
+            <button id="btnWindows" data-target="windowsList" aria-expanded="false">Windows</button>
+            <button id="btnUbuntu" data-target="ubuntuList" aria-expanded="false">Ubuntu</button>
+            <button id="btnExtras" data-target="extrasList" aria-expanded="false">Extras (drbl, Packet Tracer)</button>
+        </div>
+        <ul id="windowsList" class="download-list hidden">
+            <li><a href="./windows/Windows-10.iso" download onclick="incrementDownload(this)">Windows-<b>10</b>.iso</a> <span class="descargas-label">Descargas: <span id="descargas-w10">0</span></span></li>
+            <li><a href="./windows/Windows-11.iso" download onclick="incrementDownload(this)">Windows-<b>11</b>.iso</a> <span class="descargas-label">Descargas: <span id="descargas-w11">0</span></span></li>
+            <li><a href="./windows/Windows-2019-Server.iso" download onclick="incrementDownload(this)">Windows-2019-Server.iso</a> <span class="descargas-label">Descargas: <span id="descargas-w19">0</span></span></li>
+        </ul>
+        <ul id="ubuntuList" class="download-list hidden">
+            <li><a href="./ubuntu/ubuntu-24.04.1-desktop-amd64.iso" download onclick="incrementDownload(this)">ubuntu-<b>24.04.1</b>-desktop-amd64.iso</a> <span class="descargas-label">Descargas: <span id="descargas-u24d">0</span></span></li>
+            <li><a href="./ubuntu/ubuntu-24.04.1-live-server-amd64.iso" download onclick="incrementDownload(this)">ubuntu-<b>24.04.1</b>-live-server-amd64.iso</a> <span class="descargas-label">Descargas: <span id="descargas-u24s">0</span></span></li>
+            <li><a href="./ubuntu/ubuntu-20.04.6-desktop-amd64.iso" download onclick="incrementDownload(this)">ubuntu-<b>20.04.6</b>-desktop-amd64.iso</a> <span class="descargas-label">Descargas: <span id="descargas-u20d">0</span></span></li>
+            <li><a href="./ubuntu/ubuntu-20.04.6-live-server-amd64.iso" download onclick="incrementDownload(this)">ubuntu-<b>20.04.6</b>-live-server-amd64.iso</a> <span class="descargas-label">Descargas: <span id="descargas-u20s">0</span></span></li>
+        </ul>
+        <ul id="extrasList" class="download-list hidden">
+            <li><a href="./extras/drbl-live-xfce-2.5.1-16-amd64.iso" download onclick="incrementDownload(this)">drbl-live-xfce-2.5.1-16-amd64.iso</a> <span class="descargas-label">Descargas: <span id="descargas-drbl">0</span></span></li>
+            <li><a href="./extras/Cisco-Packet-Tracer-6.0.1.exe" download onclick="incrementDownload(this)">Cisco-Packet-Tracer-6.0.1.exe</a> <span class="descargas-label">Descargas: <span id="descargas-pt">0</span></span></li>
+        </ul>
+        <section id="emails">
+            <h2>Correos</h2>
+            <button onclick="copyAllEmails()">Copiar todos los correos</button>
+            <ul class="email-list">
+                <li>Basilio: <a href="#" onclick="copyEmail('basilio.coloma@murciaeduca.es'); return false;">basilio.coloma@murciaeduca.es</a></li>
+                <li>Javier: <a href="#" onclick="copyEmail('franciscojavi.perez@murciaeduca.es'); return false;">franciscojavi.perez@murciaeduca.es</a></li>
+                <li>Jorge: <a href="#" onclick="copyEmail('profesorjhernandez@gmail.com'); return false;">profesorjhernandez@gmail.com</a></li>
+                <li>Jesús: <a href="#" onclick="copyEmail('jesuspedro.romero@murciaeduca.es'); return false;">jesuspedro.romero@murciaeduca.es</a></li>
+                <li>Natividad: <a href="#" onclick="copyEmail('natividad.perez3@murciaeduca.es'); return false;">natividad.perez3@murciaeduca.es</a></li>
+                <li>Antonio: <a href="#" onclick="copyEmail('3401431@alu.murciaeduca.es'); return false;">3401431@alu.murciaeduca.es</a></li>
+            </ul>
+        </section>
+        <section id="faq">
+            <h2>Preguntas Frecuentes</h2>
+            <details><summary>¿Cómo descargo un archivo?</summary><p>Haz clic en el nombre del archivo y la descarga comenzará automáticamente.</p></details>
+            <details><summary>¿Cómo copio un correo?</summary><p>Haz clic en el correo o usa el botón "Copiar todos los correos".</p></details>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form onsubmit="enviarSugerencia(event)">
+                <input type="text" id="nombre" placeholder="Tu nombre" required>
+                <input type="email" id="correo" placeholder="Tu correo" required>
+                <textarea id="mensaje" placeholder="Tu sugerencia o problema" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Pichon's Web Server. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
