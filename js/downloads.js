@@ -1,16 +1,24 @@
-function generarIdSpan(archivo) {
-    const mapeoIds = {
-        'Windows-10.iso': 'descargas-w10',
-        'Windows-11.iso': 'descargas-w11',
-        'Windows-2019-Server.iso': 'descargas-w19',
-        'ubuntu-24.04.1-desktop-amd64.iso': 'descargas-u24d',
-        'ubuntu-24.04.1-live-server-amd64.iso': 'descargas-u24s',
-        'ubuntu-20.04.6-desktop-amd64.iso': 'descargas-u20d',
-        'ubuntu-20.04.6-live-server-amd64.iso': 'descargas-u20s',
-        'drbl-live-xfce-2.5.1-16-amd64.iso': 'descargas-drbl',
-        'Cisco-Packet-Tracer-6.0.1.exe': 'descargas-pt'
-    };
-    return mapeoIds[archivo] || null;
+async function obtenerMapeoIds() {
+    try {
+        const enlaces = document.querySelectorAll('a[href][download]'); // Seleccionar todos los enlaces de descarga
+        const mapeoIds = {};
+        enlaces.forEach(enlace => {
+            const archivo = enlace.getAttribute('href').split('/').pop(); // Obtener el nombre del archivo
+            const id = `descargas-${archivo.replace(/[^a-zA-Z0-9]/g, '-').toLowerCase()}`; // Reemplazar caracteres no alfanuméricos por guiones
+            mapeoIds[archivo] = id;
+        });
+        return mapeoIds;
+    } catch (e) {
+        console.error('Error al obtener el mapeo de IDs:', e);
+        return {};
+    }
+}
+
+async function generarIdSpan(archivo) {
+    if (!window.mapeoIds) {
+        window.mapeoIds = await obtenerMapeoIds(); // Generar el mapeo dinámicamente
+    }
+    return window.mapeoIds[archivo] || null;
 }
 
 async function incrementarDescargaGlobal(archivo, span) {
@@ -26,10 +34,12 @@ async function incrementarDescargaGlobal(archivo, span) {
         }
         const data = await response.json();
         if (data.ok) {
-            const spanId = generarIdSpan(archivo);
+            const spanId = await generarIdSpan(archivo); // Asegurarse de esperar el ID generado
             const spanDescargas = document.getElementById(spanId);
             if (spanDescargas) {
-                spanDescargas.textContent = data.total;
+                spanDescargas.textContent = data.total; // Actualizar dinámicamente el número de descargas
+            } else {
+                console.warn(`No se encontró el elemento con ID: ${spanId}`);
             }
         }
     } catch (e) {
@@ -39,18 +49,25 @@ async function incrementarDescargaGlobal(archivo, span) {
 
 async function cargarDescargasGlobales() {
     try {
-        const response = await fetch('/2smr/api/descargas');
+        if (!window.mapeoIds) {
+            window.mapeoIds = await obtenerMapeoIds(); // Generar el mapeo dinámicamente
+        }
+
+        const response = await fetch('/descargas.json'); // Asegurarse de usar la ruta correcta
         if (!response.ok) {
+            console.error('Error al cargar las descargas globales');
             return;
         }
         const data = await response.json();
-        Object.keys(data).forEach(archivo => {
-            const spanId = generarIdSpan(archivo);
+        for (const archivo in window.mapeoIds) {
+            const spanId = window.mapeoIds[archivo];
             const spanDescargas = document.getElementById(spanId);
             if (spanDescargas) {
-                spanDescargas.textContent = data[archivo];
+                spanDescargas.textContent = data[archivo] || 0; // Mostrar 0 si no hay descargas
+            } else {
+                console.warn(`No se encontró el elemento con ID: ${spanId}`);
             }
-        });
+        }
     } catch (e) {
         console.error('Error al cargar las descargas globales:', e);
     }
@@ -67,7 +84,7 @@ function incrementDownload(link) {
 }
 
 window.onload = function() {
-    cargarDescargasGlobales();
+    cargarDescargasGlobales(); // Cargar los valores dinámicamente al cargar la página
 };
 
 window.incrementDownload = incrementDownload;
