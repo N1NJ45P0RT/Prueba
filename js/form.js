@@ -27,3 +27,4 @@ function enviarSugerencia(e) {
 
 // Exportar la función como módulo
 export { enviarSugerencia };
+window.enviarSugerencia = enviarSugerencia;
