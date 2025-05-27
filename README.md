@@ -85,6 +85,7 @@ Si tienes problemas, revisa que las versiones de Node.js y npm sean compatibles 
 
 - **Express**: Framework para construir el servidor backend.
 - **dotenv**: Para manejar variables de entorno.
+- **nodemailer**: Para enviar correos electrónicos desde el backend.
 
 ## Autor
 Este proyecto fue desarrollado por N1NJ45P0RT. Si tienes preguntas o sugerencias, no dudes en contactarme.
