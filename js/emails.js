@@ -23,3 +23,4 @@ function copyAllEmails() {
 }
 
 export { copyEmail, copyAllEmails };
+window.copyAllEmails = copyAllEmails;
