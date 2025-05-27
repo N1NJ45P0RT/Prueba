@@ -72,13 +72,13 @@ Este proyecto es una aplicación web que permite gestionar descargas de archivos
     ```bash
     node backend_descargas.js
     ```
-    La aplicación estará disponible en `http://127.0.0.1:3001`.
+    La aplicación estará disponible en `http://localhost:3001`.
 
 Si tienes problemas, revisa que las versiones de Node.js y npm sean compatibles y que todas las dependencias estén correctamente instaladas.
 
 ## Uso
 
-- Accede a la aplicación en `http://127.0.0.1:3001`.
+- Accede a la aplicación en `http://localhost:3001`.
 - Utiliza la interfaz para descargar archivos y enviar formularios de contacto.
 
 ## Dependencias
