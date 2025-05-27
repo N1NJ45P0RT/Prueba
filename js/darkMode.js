@@ -11,6 +11,3 @@ window.toggleDarkMode = function() {
     const isDarkMode = document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', isDarkMode);
 };
-
-// Exportar la función como módulo
-export { toggleDarkMode };
