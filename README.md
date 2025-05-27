@@ -87,5 +87,18 @@ Si tienes problemas, revisa que las versiones de Node.js y npm sean compatibles 
 - **dotenv**: Para manejar variables de entorno.
 - **nodemailer**: Para enviar correos electrónicos desde el backend.
 
+## Permisos necesarios para descargas.json
+
+El archivo `descargas.json` debe tener permisos de lectura y escritura para el usuario o servicio que ejecuta el backend (por ejemplo, `nginx` o el usuario de Node.js). Si no se otorgan estos permisos, el backend devolverá un error 500 al intentar registrar una descarga.
+
+Para dar permisos adecuados, ejecuta:
+
+```bash
+sudo chown <usuario-servidor>:<grupo-servidor> descargas.json
+sudo chmod 664 descargas.json
+```
+
+Reemplaza `<usuario-servidor>` y `<grupo-servidor>` por el usuario y grupo bajo el que corre tu backend (por ejemplo, `www-data` para nginx).
+
 ## Autor
 Este proyecto fue desarrollado por N1NJ45P0RT. Si tienes preguntas o sugerencias, no dudes en contactarme. :)
