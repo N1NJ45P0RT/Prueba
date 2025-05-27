@@ -3,7 +3,7 @@
 
 const express = require('express');
 const path = require('path');
-require('dotenv').config({ path: './env.env' });
+require('dotenv').config({ path: 'env.env' });
 
 const app = express();
 const PORT = 3001;
@@ -16,6 +16,6 @@ app.use(express.static(__dirname));
 app.use('/2smr/api/descargas', descargasRoutes);
 app.use('/2smr/api/contacto', contactoRoutes);
 
-app.listen(PORT, '127.0.0.1', () => {
-    console.log(`Servidor escuchando en http://127.0.0.1:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Servidor escuchando en "ip":${PORT}`);
 });
