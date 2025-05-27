@@ -32,7 +32,7 @@ Este proyecto es una aplicación web que permite gestionar descargas de archivos
 
 ### Otros Archivos
 - **descargas.json**: Archivo JSON que almacena datos relacionados con las descargas.
-- **env.env**: Archivo de configuración para variables de entorno.
+- **env.example**: Archivo de configuración para variables de entorno.
 - **ico.png**: Icono utilizado en la interfaz.
 
 ## Configuración de Node.js y npm
@@ -54,8 +54,8 @@ Este proyecto es una aplicación web que permite gestionar descargas de archivos
      ```
 
 3. **Configurar variables de entorno**:
-   - Crea un archivo `.env` en el directorio raíz del proyecto.
-   - Copia el contenido del archivo `env.example` al archivo `.env` y ajusta los valores según sea necesario.
+   - Crea un archivo `env.env` en el directorio raíz del proyecto.
+   - Copia el contenido del archivo `env.example` al archivo `env.env` y ajusta los valores según sea necesario.
 
 4. **Iniciar el servidor**:
    - Ejecuta el siguiente comando para iniciar el servidor:
