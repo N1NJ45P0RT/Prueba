@@ -70,4 +70,6 @@ window.onload = function() {
     cargarDescargasGlobales();
 };
 
+window.incrementDownload = incrementDownload;
+
 export { generarIdSpan, incrementarDescargaGlobal, cargarDescargasGlobales, incrementDownload };

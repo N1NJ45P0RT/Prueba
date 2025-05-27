@@ -6,3 +6,5 @@ function showToast(msg) {
 }
 
 export { showToast };
+
+window.showToast = showToast;

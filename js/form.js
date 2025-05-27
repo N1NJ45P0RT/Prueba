@@ -1,3 +1,5 @@
+import { showToast } from './toast.js';
+
 function enviarSugerencia(e) {
     e.preventDefault();
     const nombre = document.getElementById('nombre').value;
