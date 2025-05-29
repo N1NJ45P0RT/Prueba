@@ -1,14 +1,11 @@
 # Ignorar archivos sensibles
-env.env
+.env
 
 # Ignorar la carpeta node_modules
 node_modules/
 
 # Ignorar el archivo de bloqueo de paquetes
 package-lock.json
-
-# Ignorar el archivo de configuración de paquetes
-package.json
 
 # Ignorar la carpeta de archivos descargables
 windows/
